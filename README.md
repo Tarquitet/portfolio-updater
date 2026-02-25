@@ -1,69 +1,47 @@
 # 🗄️ Universal Portfolio DB Manager (v17)
 
-> **Un gestor de base de datos visual (CMS local) en Python para editar archivos de configuración JavaScript de forma segura y automatizada.**
+> **A local desktop DB manager (CMS-like) for safely editing JavaScript configuration files used as static databases.**
 
-**Universal Portfolio DB Manager** es una herramienta de escritorio con interfaz gráfica avanzada diseñada para desarrolladores web que usan bases de datos estáticas en JavaScript (ej. Portafolios, Galerías). Permite leer, visualizar, editar y reescribir objetos y arrays complejos de JS sin tocar una sola línea de código, evitando errores de sintaxis y gestionando recursos visuales en tiempo real.
-
-## ✨ Características Principales (Actualizado v17)
-
-- **🧠 Parser JS Inteligente (V18):** Algoritmo de extracción nativo ultra estricto que elimina comentarios, ignora el texto plano (strings) para evitar falsos positivos y convierte objetos JavaScript en diccionarios de Python de forma no destructiva.
-- **⚡ Recarga Dinámica y "Sticky Settings":** Al agregar un nuevo proyecto, el sistema clona automáticamente las configuraciones del proyecto anterior (Sticky Settings) para ahorrar tiempo. Además, guarda y recarga el archivo en segundo plano sin perder la selección actual.
-- **🖼️ Gestor de Imágenes Robusto:** Buscador profundo que localiza imágenes locales automáticamente. Al agregar nuevas imágenes, el script normaliza rutas y crea las carpetas de destino automáticamente si no existen.
-- **🏷️ Sistema de Tags Dinámico y Estricto:** Restringe menús desplegables (`Dropdowns`) solo a los campos necesarios (Categoría/Contexto) y recarga nuevas herramientas (Tools) en memoria instantáneamente al editarlas.
-- **🛠️ Editor CRUD Visual y Multihilo:** Agrega, elimina, edita y reordena items con controles intuitivos que no congelan la interfaz. (Ahora compatible con la tecla `Enter` para guardado rápido).
+Universal Portfolio DB Manager is a GUI tool to read, view, edit and rewrite complex JS objects/arrays safely. It prevents syntax errors and manages visual resources in real time.
 
 ![1769443128324](images/README/1769443128324.png)
 
+## ✨ Main Features (v17)
+
+- **Smart JS Parser:** Extracts JS objects safely, ignoring strings and comments.
+- **Sticky Settings & Dynamic Reload:** New items inherit previous settings and the UI reloads without losing selection.
+- **Robust Image Manager:** Finds local images and copies them, normalizing paths and creating destination folders.
+- **Dynamic Tag System:** Restricts dropdowns to necessary fields and reloads tools in memory instantly.
+- **Multithreaded CRUD UI:** Add, edit, reorder, and save items without freezing the GUI.
+
 ---
 
-## ⚙️ Requisitos e Instalación
+## ⚙️ Requirements & Installation
 
-El script cuenta con un **Auto-Instalador**. Al ejecutarlo por primera vez, intentará descargar automáticamente las dependencias necesarias.
+- Python 3.8 or newer.
 
-**Requisitos del sistema:**
+Auto-installer will install dependencies (`ttkbootstrap`, `Pillow`, `requests`) on first run.
 
-- Python 3.8 o superior.
-
-**Dependencias (instaladas automáticamente):**
-
-- `ttkbootstrap` (Interfaz gráfica moderna)
-- `Pillow` (Procesamiento de previsualización de imágenes)
-- `requests` (Carga de imágenes web)
-
-### Ejecución
+Run:
 
 ```bash
 python 17_fixed_unnecesary_dropsowns.py
-
-📖 Guía de Uso Rápida
-
-    Cargar Base de Datos: Abre la aplicación y usa "Buscar Archivo" para seleccionar tu archivo de datos (cv_data.js).
-
-    Selección de Lista: El programa detectará automáticamente todos los arrays disponibles. Selecciona uno en el menú lateral.
-
-    Edición Rápida:
-
-        Haz clic en cualquier proyecto para ver sus detalles.
-
-        Modifica los campos y presiona Enter para aplicar cambios rápidos.
-
-        Al hacer clic en [+ Nuevo Item], este heredará las categorías del último item seleccionado.
-
-    Guardar: Haz clic en "💾 Guardar JS". El script actualizará el archivo original y recargará la vista sin que pierdas tu posición en la lista.
-
-📈 Evolución del Proyecto (Changelog)
-
-    v1-v4: Implementación inicial de UI (ttkbootstrap), previsualización de imágenes y transición al "Auto-Descubrimiento" de datos JS.
-
-    v5-v9: Implementación de diálogos avanzados (MultiSelect y Autocomplete), manejo de constantes (CAT., T.) y corrección de congelamientos con Multithreading.
-
-    v10-v12: Arreglos en el motor de scroll de la interfaz y recarga dinámica del JS post-guardado. Implementación del buscador profundo de imágenes locales.
-
-    v13-v15: Integración de "Sticky Settings" (clonado de propiedades al crear nuevos items) y blindaje del Parser V18 para no leer strings como si fueran constantes de código.
-
-    v16-v17 (Actual): Copia robusta de imágenes (creación automática de directorios). Restricción inteligente de Dropdowns para evitar menús innecesarios y guardado rápido con tecla Enter.
-
-⚠️ Notas Técnicas
-
-Este gestor está optimizado para la estructura específica del portafolio actual (detectando prefijos como CAT., CTX., T.). Si modificas las constantes desde la herramienta "Editor de Configuración", los cambios se reflejarán en la interfaz inmediatamente sin necesidad de recargar el archivo.
 ```
+
+[![Leer en Español](https://img.shields.io/badge/Leer%20en%20Espa%C3%B1ol-ES-blue?style=flat-square&logo=github)](README_es.md)
+
+## Quick Usage
+
+1. Load a data file via the app's "Browse File" control (for example `js/cv_data.js`).
+2. Select an array from the side menu to view its items.
+3. Click any item to edit fields inline. Press `Enter` to save quick edits.
+4. Use `+ New Item` to add a new entry (it inherits settings from the last selected item).
+5. Click **Save JS** to write changes back to the source file; the UI reloads without losing position.
+
+## Changelog
+
+- v1–v4: Initial UI with previews and auto-discovery of JS data.
+- v5–v9: Advanced dialogs (MultiSelect/Autocomplete), constant handling, and threading fixes.
+- v10–v12: Scroll-engine fixes and dynamic JS reload after save.
+- v13–v15: Sticky Settings and parser hardening.
+- v16–v17: Robust image copying and improved dropdown restrictions.
